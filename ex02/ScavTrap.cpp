@@ -30,14 +30,14 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name, "ScavTrap", 100)
 	this->_attack_damage = this->_class_attack_damage;
 	this->_energy_points = this->_class_energy_points;
 	this->_hitpoints = this->_class_hp;
-	std::cout << class_name << " "  << this->_name << " has been created\n";
+	std::cout << class_name << " "  << this->_name << " entered the room\n";
 }
 
 ScavTrap::~ScavTrap()
 {
 	std::string		class_name = this->_class_name;
 
-	std::cout << class_name << " " << this->_name << " is now destroyed...\n";
+	std::cout << class_name << " " << this->_name << " left this world...\n";
 }
 
 ScavTrap::ScavTrap(ScavTrap const & src) : ClapTrap(src.get_name())

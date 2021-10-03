@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 17:30:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/03 20:49:40 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/10/03 21:03:09 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ int	main(void)
 
 	std::cout << std::endl;
 	fragtrap.attack(s2);
+	claptrap.attack(s2);
+	scavtrap.attack(s1);
+	std::cout << std::endl;
 	fragtrap.attack(s2);
 	fragtrap.attack(s2);
 	fragtrap.attack(s2);

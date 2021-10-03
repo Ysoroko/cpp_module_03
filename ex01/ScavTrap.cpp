@@ -27,13 +27,30 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	std::cout << class_name << " "  << this->_name << " has been created\n";
 }
 
-
 ScavTrap::~ScavTrap()
 {
 	std::string		class_name = this->_class_name;
 
 	std::cout << class_name << " " << this->_name << " is now destroyed...\n";
 }
+
+ScavTrap::ScavTrap(ScavTrap const & src) : ClapTrap(src.get_name())
+{
+	this->_name = src.get_name();
+	this->_attack_damage = src.get_attack_damage();
+	this->_energy_points = src.get_energy_points();
+	this->_hitpoints = src.get_hitpoints();
+}
+
+ScavTrap & ScavTrap::operator=(ScavTrap const & rhs)
+{
+	this->_name = rhs.get_name();
+	this->_attack_damage = rhs.get_attack_damage();
+	this->_energy_points = rhs.get_energy_points();
+	this->_hitpoints = rhs.get_hitpoints();
+	return (*this);
+}
+
 
 void ScavTrap::attack(std::string const & target)
 {
@@ -60,9 +77,6 @@ void ScavTrap::attack(std::string const & target)
 		std::cout << name << " doesn't have enough energy points to attack\n";
 	}
 	std::cout << name << " now has " << this->_energy_points << " energy points left\n";
-
-
-	
 }
 
 

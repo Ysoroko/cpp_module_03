@@ -25,7 +25,11 @@ class ScavTrap : public ClapTrap
 		void attack(std::string const & target);
 		void guardGate( void );
 	private:
-		static const std::string	_class_name;
+		static const unsigned int	_class_hp;
+		static const unsigned int	_class_energy_points;
+		static const unsigned int	_class_attack_damage;
+		static const unsigned int	_class_attack_energy_cost;
+		unsigned int				_max_hp;
 
 };
 

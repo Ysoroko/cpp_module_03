@@ -13,17 +13,23 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
-const std::string ScavTrap::_class_name = "ScavTrap";
+const unsigned int	ScavTrap::_class_hp = 100;
+const unsigned int	ScavTrap::_class_energy_points = 50;
+const unsigned int	ScavTrap::_class_attack_damage = 20;
+
+const unsigned int	ScavTrap::_class_attack_energy_cost = 25;
 
 // Constructor
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name, "ScavTrap", 100)
 {
 	std::string		class_name = this->_class_name;
 
+	this->_max_hp = 100;
+	this->_class_name = "ScavTrap";
 	this->_name = name;
-	this->_attack_damage = this->get_class_attack_damage();
-	this->_energy_points = this->get_class_energy_points();
-	this->_hitpoints = this->get_class_hp();
+	this->_attack_damage = this->_class_attack_damage;
+	this->_energy_points = this->_class_energy_points;
+	this->_hitpoints = this->_class_hp;
 	std::cout << class_name << " "  << this->_name << " has been created\n";
 }
 
@@ -57,7 +63,7 @@ void ScavTrap::attack(std::string const & target)
 	std::string		class_name = this->_class_name;
 	std::string		name = this->_name;
 	unsigned int	dmg = this->_attack_damage;
-	unsigned int	attack_energy_cost = this->get_class_attack_energy_cost();
+	unsigned int	attack_energy_cost = this->_class_attack_energy_cost;
 	unsigned int	current_energy_points = this->_energy_points;
 
 	if (this->_hitpoints == 0)
@@ -86,7 +92,7 @@ void ScavTrap::guardGate( void )
 	std::string		name = this->_name;
 
 	std::cout << class_name << " " << name << " has entered the Gate Keeper mode\n";
-	this->set_energy_points(this->get_class_energy_points());
+	this->set_energy_points(this->_class_energy_points);
 	std::cout << class_name << " " << name << " has fully recovered his energy points!\n";
 
 }

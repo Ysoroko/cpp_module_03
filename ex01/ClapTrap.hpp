@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 16:36:23 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/03 17:22:43 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/10/03 20:07:52 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,15 @@ class ClapTrap
 		unsigned int	_hitpoints;
 		unsigned int	_energy_points;
 		int				_attack_damage;
+		std::string		_class_name;
+		unsigned int	_max_hp;
 
 	private:
-		static const std::string	_class_name;
 		static const unsigned int	_class_hp;
 		static const unsigned int	_class_energy_points;
 		static const unsigned int	_class_attack_damage;
 		static const unsigned int	_class_attack_energy_cost;
+		
 
 	public:
 		// Setters
@@ -57,6 +59,7 @@ class ClapTrap
 
 		// Constructor & Destructor
 		ClapTrap(std::string name);
+		ClapTrap(std::string name, std::string class_name, unsigned int max_hp);
 		ClapTrap(const ClapTrap & src);
 		~ClapTrap();
 

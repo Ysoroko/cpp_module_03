@@ -15,13 +15,18 @@
 
 const std::string ScavTrap::_obj_name = "ScavTrap";
 
-ScavTrap::ScavTrap(std::string name) : _name(name)
+// Constructor
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << this->_obj_name << " " << this->_name << " has been created\n";
-	this->_attack_damage = 20;
-	this->_energy_points = 50;
-	this->_hitpoints = 100;
+	std::string		class_name = this->get_class_name();
+
+	this->_name = name;
+	this->_attack_damage = this->get_class_attack_damage();
+	this->_energy_points = this->get_class_energy_points();
+	this->_hitpoints = this->get_class_hp();
+	std::cout << class_name << " "  << this->_name << " has been created\n";
 }
+
 
 ScavTrap::~ScavTrap()
 {
@@ -39,7 +44,7 @@ void ScavTrap::attack(std::string const & target)
 }
 
 
-void guardGate( void )
+void ScavTrap::guardGate( void )
 {
 	std::string		name = this->_name;
 

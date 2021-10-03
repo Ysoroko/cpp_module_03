@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 16:36:23 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/03 11:20:11 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/10/03 11:38:16 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ class ClapTrap
 		static const unsigned int	_class_hp;
 		static const unsigned int	_class_energy_points;
 		static const unsigned int	_class_attack_damage;
+		static const unsigned int	_class_attack_energy_cost;
+
 	public:
 		// Setters
 		void			set_name(std::string name);
@@ -46,7 +48,8 @@ class ClapTrap
 		static unsigned int		get_class_hp( void );
 		static unsigned int		get_class_energy_points( void );
 		static unsigned int		get_class_attack_damage( void );
-
+		static unsigned int		get_class_attack_energy_cost( void );
+		
 		// Member functions
 		void		attack(std::string const & target);
 		void		takeDamage(unsigned int amount);

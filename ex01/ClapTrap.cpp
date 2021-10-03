@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 17:01:20 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/03 12:38:17 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/10/03 17:41:57 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,12 @@ const unsigned int	ClapTrap::_class_hp = 100;
 const unsigned int	ClapTrap::_class_energy_points = 50;
 const unsigned int	ClapTrap::_class_attack_damage = 20;
 
-const unsigned int	ClapTrap::_class_attack_energy_cost = 10;
+const unsigned int	ClapTrap::_class_attack_energy_cost = 25;
 
 // Member functions
 
 void ClapTrap::attack(std::string const & target)
 {
-	std::string		class_name = this->get_class_name();
 	std::string		name = this->_name;
 	unsigned int	current_energy_points = this->_energy_points;
 	unsigned int	dmg = this->_attack_damage;
@@ -31,63 +30,62 @@ void ClapTrap::attack(std::string const & target)
 
 	if (this->_hitpoints == 0)
 	{
-		std::cout << class_name << " " << name << " cannot attack because he's dead\n";
+		std::cout << name << " cannot attack because he's dead\n";
 		return ;
 	}
 	if (current_energy_points >= attack_energy_cost)
 	{
-		std::cout << class_name << " " << name << " attacks " << target << " causing "
+		std::cout << name << " attacks " << target << " causing "
 		<< dmg << " points of damage!\n";
-		std::cout << "This attack cost " << class_name << " " << name << " " << attack_energy_cost << " energy points\n";
+		std::cout << "This attack cost " << name << " " << attack_energy_cost << " energy points\n";
 		this->_energy_points -= attack_energy_cost;
 	}
 	else
 	{
-		std::cout << class_name << " " << name << " tries to attack "
+		std::cout << name << " tries to attack "
 		<< target << " but doesn't have enough energy points\n";
 	}
-	std::cout << class_name << " " << name << " now has "
-	<< this->_energy_points << " energy points left\n";
+	std::cout << name << " now has " << this->_energy_points << " energy points left\n";
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	std::string		class_name = this->get_class_name();
 	std::string		name = this->_name;
 
 	if (this->_hitpoints == 0)
 	{
-		std::cout << class_name << " " << name << " didn't take any damage because he's already dead\n";
+		std::cout << name << " didn't take any damage because he's already dead\n";
 		return ;
 	}
-	std::cout << class_name << " "  << name << " just got hit and received " << amount << " points of damage!\n";
+	std::cout << name << " just got hit and received " << amount << " points of damage!\n";
 	if (amount > this->_hitpoints)
 		this->_hitpoints = 0;
 	else
 		this->_hitpoints -= amount;
-	std::cout << class_name << " "  << name << " now has " << this->_hitpoints << " hp\n";
+	std::cout << name << " now has " << this->_hitpoints << " hp\n";
+	if (this->_hitpoints == 0)
+		std::cout << "R.I.P " << name << " ...\n";
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	std::string		class_name = this->get_class_name();
 	std::string		name = this->_name;
 	unsigned int	max_hp = this->get_class_hp();
 
 	if (this->_hitpoints == 0)
 	{
-		std::cout << class_name << " " << name << " can't be repaired because he's already dead\n";
+		std::cout << name << " can't be repaired because he's already dead\n";
 		return ;
 	}
-	std::cout << class_name << " "  << name << " was repaired for " << amount << " points of damage!\n";
+	std::cout << name << " was repaired for " << amount << " points of damage!\n";
 	if (this->_hitpoints + amount >= max_hp)
 	{
 		this->_hitpoints = max_hp;
-		std::cout << class_name << " "  << name << " is now fully healed!\n";
+		std::cout << name << " is now fully healed!\n";
 	}
 	else
 		this->_hitpoints += amount;
-	std::cout << class_name << " "  << name << " now has " << this->_hitpoints << " hp!\n";
+	std::cout << name << " now has " << this->_hitpoints << " hp!\n";
 }
 
 // Setters
@@ -161,7 +159,7 @@ unsigned int		ClapTrap::get_class_attack_energy_cost( void )
 // Constructor
 ClapTrap::ClapTrap(std::string name) : _name(name)
 {
-	std::string		class_name = this->get_class_name();
+	std::string		class_name = this->_class_name;
 
 	this->_attack_damage = this->get_class_attack_damage();
 	this->_energy_points = this->get_class_energy_points();
@@ -173,7 +171,7 @@ ClapTrap::ClapTrap(std::string name) : _name(name)
 ClapTrap::ClapTrap(const ClapTrap & src)
 {
 	std::string 	name;
-	std::string		class_name = this->get_class_name();
+	std::string		class_name = this->_class_name;
 
 	name = src.get_name() + "copy";
 	this->set_name(name);
@@ -186,7 +184,7 @@ ClapTrap::ClapTrap(const ClapTrap & src)
 // Destrtuctor
 ClapTrap::~ClapTrap()
 {
-	std::string		class_name = this->get_class_name();
+	std::string		class_name = this->_class_name;
 
 	std::cout << class_name << " "  << this->_name << " is now destroyed...\n";
 }

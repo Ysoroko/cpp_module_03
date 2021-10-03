@@ -23,7 +23,7 @@ class ScavTrap : public ClapTrap
 		void attack(std::string const & target);
 		void guardGate( void );
 	private:
-		static const std::string	_obj_name;
+		static const std::string	_class_name;
 
 };
 

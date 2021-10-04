@@ -20,17 +20,17 @@ const unsigned int	ScavTrap::_class_attack_damage = 20;
 const unsigned int	ScavTrap::_class_attack_energy_cost = 25;
 
 // Constructor
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name, "ScavTrap", 100)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name, "ClapTrap", 100)
 {
 	std::string		class_name = this->_class_name;
 
 	this->_max_hp = 100;
 	this->_class_name = "ScavTrap";
 	this->_name = name;
-	this->_attack_damage = this->_class_attack_damage;
-	this->_energy_points = this->_class_energy_points;
-	this->_hitpoints = this->_class_hp;
-	std::cout << class_name << " "  << this->_name << " entered the room\n";
+	this->_attack_damage = 20;
+	this->_energy_points = 50;
+	this->_hitpoints = 100;
+	std::cout << "ScavTrap " << this->_name << " entered the room\n";
 }
 
 ScavTrap::~ScavTrap()
@@ -73,7 +73,7 @@ void ScavTrap::attack(std::string const & target)
 	}
 	if (current_energy_points >= attack_energy_cost)
 	{
-		std::cout << class_name << " " << name << " uses a super ScavTrap attack on " << target << " which results in "
+		std::cout << name << " uses a super ScavTrap attack on " << target << " which results in "
 	<< dmg << " damage points!\n";
 		std::cout << "This attack used up " << name << "'s " << attack_energy_cost << " energy points\n";
 		this->_energy_points -= attack_energy_cost;
@@ -91,8 +91,8 @@ void ScavTrap::guardGate( void )
 	std::string		class_name = this->_class_name;
 	std::string		name = this->_name;
 
-	std::cout << class_name << " " << name << " has entered the Gate Keeper mode\n";
+	std::cout << name << " has entered the Gate Keeper mode\n";
 	this->set_energy_points(this->_class_energy_points);
-	std::cout << class_name << " " << name << " has fully recovered his energy points!\n";
+	std::cout << name << " has fully recovered his energy points!\n";
 
 }

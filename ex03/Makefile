@@ -6,7 +6,7 @@
 #    By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/02 17:40:01 by ysoroko           #+#    #+#              #
-#    Updated: 2021/10/04 11:38:29 by ysoroko          ###   ########.fr        #
+#    Updated: 2021/10/04 13:35:30 by ysoroko          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ OBJS		=	$(SRC:.cpp=.o)
 COMPILE		=	clang++
 
 # -std=c++98 displays an error if an unauthorized function is left in the code
-FLAGS		=	-Wall -Wextra -Werror -std=c++98
+FLAGS		=	-Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
 
 EXE_NAME	=	-o $(NAME)
 

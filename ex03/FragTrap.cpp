@@ -12,9 +12,13 @@
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name, "FragTrap", 100, 100, 30, 100)
+FragTrap::FragTrap(std::string name) : ClapTrap(name, "ClapTrap", 100, 100, 30, 100)
 {
 	this->set_name(name);
+	this->_hitpoints = 100;
+	this->_energy_points = 100;
+	this->_attack_damage = 30;
+	this->_max_hp = 100;
 	std::cout << "A wild Fragtrap " << name << " appears!\n";
 }
 

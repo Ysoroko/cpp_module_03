@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 10:56:17 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/04 11:58:20 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/10/04 14:02:28 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@
 //  \ /  		 \ /
 //   D 			  D
 
-class DiamondTrap : public virtual ClapTrap, public ScavTrap, public FragTrap
+class DiamondTrap : public ScavTrap, public FragTrap
 {
 	public:
-		using FragTrap::_hitpoints;
-		using ScavTrap::_energy_points;
-		using FragTrap::_attack_damage;
-		using ScavTrap::attack;
+		using FragTrap::_hitpoints; //100 hp ok
+		using FragTrap::_attack_damage; //30 ok
+		using ScavTrap::_energy_points; //50 ep ok
+		using ScavTrap::attack; // "... uses a super ScavTrap attack on ..." ok
 
 		DiamondTrap(std::string name);
 		~DiamondTrap();

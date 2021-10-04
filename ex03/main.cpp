@@ -6,7 +6,7 @@
 /*   By: ysoroko <ysoroko@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/02 17:30:34 by ysoroko           #+#    #+#             */
-/*   Updated: 2021/10/04 13:31:48 by ysoroko          ###   ########.fr       */
+/*   Updated: 2021/10/04 14:47:55 by ysoroko          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	main(void)
 	std::cout << std::endl;
 
 	diamondtrap.guardGate();
+	diamondtrap.attack(s2);
 	std::cout << std::endl;
 
 	// New class personal method call
